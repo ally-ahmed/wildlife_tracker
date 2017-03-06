@@ -3,9 +3,13 @@ import org.sql2o.*;
 
 public class ProtectedAnimal extends Animal
 {
+
+	public static final String DATABASE_TYPE = "protected";
+	
 	public ProtectedAnimal(String name)
 	{
 	 this.name = name;
+	 type = DATABASE_TYPE;
 	}
 	
 	public static List<ProtectedAnimal> all() {
@@ -16,8 +20,17 @@ public class ProtectedAnimal extends Animal
 			.executeAndFetch(ProtectedAnimal.class);
 		}
 	}
+	
+	public static List<ProtectedAnimal> allProtected() {
+		String sql = "SELECT * FROM animals WHERE type = 'protected';";
+		try(Connection con = DB.sql2o.open()) {
+			return con.createQuery(sql)
+			.throwOnMappingFailure(false)
+			.executeAndFetch(ProtectedAnimal.class);
+		}
+	}
 
-	public static Animal find(int id)
+	public static ProtectedAnimal find(int id)
 	{
 			try(Connection con = DB.sql2o.open())
 			{
@@ -29,6 +42,7 @@ public class ProtectedAnimal extends Animal
 				return animal;
 			}
 	}
+	
 	
 	
 

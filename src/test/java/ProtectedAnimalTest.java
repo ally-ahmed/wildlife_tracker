@@ -31,33 +31,41 @@ public class ProtectedAnimalTest {
    ProtectedAnimal anotherAnimal = new ProtectedAnimal("chicken");
     assertTrue(testAnimal.equals(anotherAnimal));
   }
-//	
+
 	@Test
   public void save_insertsObjectIntoDatabase_ProtectedAnimal() 
 	{
     ProtectedAnimal testAnimal = new ProtectedAnimal("chicken");
     testAnimal.save();
-    assertEquals(true, ProtectedAnimal.all().get(0).equals(testAnimal));
+    assertEquals(true, ProtectedAnimal.allProtected().get(0).equals(testAnimal));
   }
-//	
+	
 	 @Test
   public void all_returnsAllInstancesOfPerson_true() 
 	{
-    
 		ProtectedAnimal firstAnimal = new ProtectedAnimal("chicken");
     firstAnimal.save();
    	ProtectedAnimal secondAnimal = new ProtectedAnimal("elephant");
     secondAnimal.save();
-    assertEquals(true, ProtectedAnimal.all().get(0).equals(firstAnimal));
-    assertEquals(true, ProtectedAnimal.all().get(1).equals(secondAnimal));
+    assertEquals(true, ProtectedAnimal.allProtected().get(0).equals(firstAnimal));
+    assertEquals(true, ProtectedAnimal.allProtected().get(1).equals(secondAnimal));
   }
 
 	@Test
 	public void save_assignsIdToObject(){
-    Animal testAnimal = new Animal("chicken");
+    ProtectedAnimal testAnimal = new ProtectedAnimal("chicken");
 		testAnimal.save();
-		Animal savedAnimal = Animal.all().get(0);
+		ProtectedAnimal savedAnimal = ProtectedAnimal.all().get(0);
 		assertEquals(testAnimal.getId(),savedAnimal.getId());
 	}
+	@Test
+  public void find_returnsProtectedAnimalWithSameId_secondAnimal() {
+   	ProtectedAnimal firstAnimal = new ProtectedAnimal("chicken");
+    firstAnimal.save();
+   	ProtectedAnimal secondAnimal = new ProtectedAnimal("elephant");
+    secondAnimal.save();
+    assertEquals(firstAnimal.find(secondAnimal.getId()), secondAnimal);
+  }
+	
 	
 }

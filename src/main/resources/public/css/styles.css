@@ -1,0 +1,77 @@
+html body {
+	background:url(../images/page.jpg);
+}
+
+.navbar{
+	background:url(../images/background.jpg);
+	margin-bottom: 0px;	
+}
+.navbar-brand img{
+	width:40%;
+	position:relative;
+		top:-30px;
+}
+.navbar-header h3{
+	color:white;
+}
+
+.sidebar {
+	margin-top:px;
+  bottom: 0;
+  left: 0;
+	height:100vh;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;   
+  border-right: 1px solid #1E282C;
+	background:url(../images/side-back.jpg);
+/*	color:#DBDBDB;*/
+	
+}
+
+/* Sidebar navigation */
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+.sidebar a{
+	text-decoration:none;
+	list-style: none;
+	color:#B49B65;
+	width:100%;
+}
+.sidebar li a:hover{
+	background-color:#180A09;
+	border-left:3px solid #FDF8B4;
+	
+	
+}
+
+.box form{
+	background:white;
+	padding:10px;
+	border:solid 2px white;
+	border-radius: 5px;
+	margin-top:10px;
+	
+}
+.panel{
+	margin-top:10px;
+}

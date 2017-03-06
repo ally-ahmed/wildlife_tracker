@@ -1,0 +1,48 @@
+<div class="panel panel-primary">
+	  <div class="panel-heading">
+			<h3 class="panel-title">All Endangered Animals</h3>
+	  </div>
+	  <div class="panel-body">
+			<table id="example" class=" hover table table-striped table-bordered table-responsive" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>age</th>
+                <th>health</th>
+                <th>Type</th>
+                <th>Location</th>
+                <th>Time</th>
+                <th>Ranger Name</th>
+
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+             <th>Name</th>
+							<th>age</th>
+							<th>health</th>
+							<th>Type</th>
+							<th>Location</th>
+							<th>Time</th>
+							<th>Ranger Name</th>
+            </tr>
+        </tfoot>
+        <tbody>
+             #foreach($endangeredAnimal in $endangeredAnimals)
+           <tr>
+           	<td>$endangeredAnimal.getName()</td>
+           	<td>$endangeredAnimal.getAge()</td>
+           	<td>$endangeredAnimal.getHealth()</td>
+           	<td>$endangeredAnimal.getType()</td>
+           	<td></td>
+           	<td></td>
+           	<td></td>
+           </tr>
+           #end
+         
+           
+           
+        </tbody>
+    </table>
+	  </div>
+</div>
